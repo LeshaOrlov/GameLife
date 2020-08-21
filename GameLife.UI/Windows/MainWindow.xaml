@@ -1,0 +1,66 @@
+﻿<Window x:Class="GameLife.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameLife.UI"
+        mc:Ignorable="d"
+        Title="GameLife" Height="554" Width="706" ResizeMode="NoResize" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72"></ColumnDefinition>
+            <ColumnDefinition  Width="128"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Menu Height="25" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+            <MenuItem Header="File">
+                <MenuItem Name="LoadMm" Header="Load Game" Click="LoadGame"></MenuItem>
+                <MenuItem Name="LoadRandomMm" Header="Load Random Game" Click="LoadRandomGame"></MenuItem>
+                <MenuItem Name="SaveMm" Header="Save Game" Click="SaveGame"></MenuItem>
+                <MenuItem  Name="LogsMm" Header="Show Logs" Click="ShowLogs"></MenuItem>
+                <Separator />
+                <MenuItem Header="Exit" Click="ExitProgram"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help" >
+                <MenuItem Header="About program" Click="AboutProgram"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Label Grid.Column="0" Grid.Row="1">Density</Label>
+        <TextBox x:Name="DensityTxt" Grid.Column="1" Grid.Row="1" Margin="4,4,80,4">2</TextBox>
+        <Label Grid.Column="0" Grid.Row="2" >FPS:</Label>
+        <Label Name="FPS" Grid.Column="1" Grid.Row="2">1</Label>
+        <Label Grid.Column="0" Grid.Row="3">Step:</Label>
+        <Label Name="Step" Grid.Column="1" Grid.Row="3">0</Label>
+        <Label Grid.Column="0" Grid.Row="4" Height="25" >Status:</Label>
+        <Label Name="Status" Grid.Column="1" Grid.Row="4">Stop</Label>
+        
+        <Label Grid.Column="0" Grid.Row="5" Height="25" >Border:</Label>
+        <CheckBox Name="Border" Grid.Column="1" Grid.Row="5" Height="25" Margin="4,5,22,4" Checked="Border_Checked" Unchecked="Border_Unchecked"></CheckBox>
+        <Button Name="NewGameBtn" Grid.Column="1" Grid.Row="6" Margin="4,2,4,2" Click="NewGame">Старт</Button>
+        <Button Name="StopGameBtn" Grid.Column="1" Grid.Row="7" Margin="4,2,4,2" Click="StopGame">Стоп</Button>
+        <Button Name="PauseGameBtn" Grid.Column="1" Grid.Row="8" Margin="4,2,4,2" Click="PauseGame">Пауза</Button>
+        <Button Name="GenerateMapBtn" Grid.Column="1" Grid.Row="9" Margin="4,2,4,2" Click="GenerateMap">Генерация</Button>
+        <Button Name="ClearMapBtn" Grid.Column="1" Grid.Row="10" Margin="4,2,4,2" Click="ClearMap">Очистить</Button>
+        <Canvas Name="GameArea" ClipToBounds="True" Background="Black" Grid.Column="2" Grid.Row="1" Grid.RowSpan="6" Height="500" Width="500" MouseDown="Hand_MouseMove" MouseMove="Hand_MouseMove">
+            <Canvas.CacheMode>
+                <BitmapCache EnableClearType="False" RenderAtScale="1" SnapsToDevicePixels="False"  />
+            </Canvas.CacheMode>
+        </Canvas>
+    </Grid>
+</Window>
